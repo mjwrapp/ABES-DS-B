@@ -1,0 +1,21 @@
+#head{
+    color: burlywood;
+}
+.prnv{
+            margin-top: 350px;
+            margin-left: 350px;
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+        }
+        #div1{
+            color: rgb(66, 173, 189);
+            font-size: 20px;
+            text-align: center;
+            background-color: rgb(189, 51, 51);
+            border: 2px solid black;
+            height: 50px;
+            width: 500px;
+            margin-left: 250px;
+            margin-top: 50px;
+        }
