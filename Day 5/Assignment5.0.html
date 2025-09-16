@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Three Cards Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eee;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cards-container {
+            display: flex;
+            flex-direction: column; /* Stack cards vertically */
+            align-items: center;
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 350px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 8px #ccc;
+            overflow: hidden;
+        }
+        .img-card {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+        .img-top {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            height: 140px;
+        }
+        .img-top img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 6px;
+        }
+        .img-bottom {
+            padding: 15px;
+            background: #fafafa;
+            display: flex;
+            justify-content: center;
+        }
+        .counter-container {
+            padding: 20px 0;
+            width: 100%;
+        }
+        .count {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+        button {
+            font-size: 1em;
+            padding: 7px 18px;
+            margin: 0 5px;
+            background: #ddd;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ccc;
+        }
+        h2 {
+            font-size: 1.1em;
+            margin: 15px 0 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="cards-container">
+        <!-- Card 1: Image Delete -->
+        <div class="card">
+            <h2>Delete Image Card</h2>
+            <div class="img-card">
+                <div class="img-top" id="imgContainer1">
+                    <img id="img1" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=350&q=80" alt="Nature">
+                </div>
+                <div class="img-bottom">
+                    <button onclick="deleteImg1()">Delete</button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2: Counter App -->
+        <div class="card">
+            <h2>Counter App</h2>
+            <div class="counter-container">
+                <div class="count" id="count">0</div>
+                <button id="decrement">-</button>
+                <button id="increment">+</button>
+            </div>
+        </div>
+        <!-- Card 3: Change Image -->
+        <div class="card">
+            <h2>Change Image Card</h2>
+            <div class="img-card">
+                <div class="img-top" id="imgContainer2">
+                    <img id="img2" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=350&q=80" alt="Forest">
+                </div>
+                <div class="img-bottom">
+                    <button onclick="changeImg2()">Change Image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Card 1: Delete Image
+        function deleteImg1() {
+            var img = document.getElementById('img1');
+            if (img) {
+                img.remove();
+            }
+        }
+
+        // Card 2: Counter App
+        let count = 0;
+        const countEl = document.getElementById('count');
+        const incBtn = document.getElementById('increment');
+        const decBtn = document.getElementById('decrement');
+
+        incBtn.onclick = function() {
+            if (count < 10) {
+                count++;
+                countEl.textContent = count;
+            } else {
+                alert('maxcount');
+            }
+        };
+
+        decBtn.onclick = function() {
+            if (count > 0) {
+                count--;
+                countEl.textContent = count;
+            } else {
+                alert('mincount');
+            }
+        };
+
+        // Card 3: Change Image
+        function changeImg2() {
+            var img = document.getElementById('img2');
+            if (img) {
+                img.src = "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=350&q=80";
+            }
+        }
+    </script>
+</body>
+</html>
