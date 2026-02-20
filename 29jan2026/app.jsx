@@ -1,12 +1,34 @@
-console.log("Hii")
+console.log("Hii");
 
-const parent = document.getElementById('container');
-const root = ReactDOM.createRoot(parent)
-const h2 = React.createElement("h2",{},"Welcome to React dev");
-const li1 = React.createElement("li1",{},"java programming");
-const li2 = React.createElement("li2",{},"C++ programing ");
+const parent = document.getElementById("container");
+const root = ReactDOM.createRoot(parent);
 
-const u1 = React.createElement("ul",{},li1,li2);
-const div = React.createElement('div',{},h2,ul,img);
+const h2 = React.createElement("h2", {}, "Welcome to React dev");
 
-root.render(div);
+const li1 = React.createElement("li", {}, "Java Programming");
+const li2 = React.createElement("li", {}, "C++ Programming");
+
+const ul = React.createElement("ul", {}, li1, li2);
+
+const img = React.createElement("img", {
+  src: "https://via.placeholder.com/150",
+  alt: "sample",
+});
+
+const div = React.createElement("div", {}, h2, ul, img);
+
+
+
+setTimeout(() => {
+  root.render(React.createElement("div", {}, ul));
+}, 1000);
+
+
+setTimeout(() => {
+  root.render(React.createElement("div", {}, h2, ul));
+}, 2000);
+
+setTimeout(() => {
+  root.render(React.createElement("div", {}, h2, ul, img));
+}, 3000);
+
